@@ -1,0 +1,8 @@
+# Ignore everything!
+/*
+/*/
+
+# Whitelist folders/files we actually want
+!.gitignore
+!/Assets/
+!/ProjectSettings/

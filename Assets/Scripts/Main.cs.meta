@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dd94c70f35aefbf4caa77b97bfbe85ac
+timeCreated: 1443015493
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - coridor: {fileID: 143238, guid: 8bb814ee47db5ef4da269492f6b73062, type: 2}
+  - corner: {fileID: 190820, guid: 88c78cd48be2a264b81007d180f663b6, type: 2}
+  - cam: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
