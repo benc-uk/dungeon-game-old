@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Main : MonoBehaviour
 {
-    public GameObject player_object;
+    public GameObject playerGameObj;
     public Camera cam;
 
     public static Map map;
     public static PlayerData player;
 
     public const int CELL_SIZE = 20;
-    public const float MAX_LERP_TIME = 0.6f;
+    public const float MOVE_LERP_TIME = 0.4f;
     public const float HEAD_HEIGHT = 10f;
     public const float LIGHT_HEIGHT = 12f;
 
@@ -18,9 +18,9 @@ public class Main : MonoBehaviour
     void Start ()
     {
         // Init Player
-        player = new PlayerData(player_object);
+        player = new PlayerData(playerGameObj);
 
-        player_object.GetComponentInChildren<Light>().transform.position.Set(0, LIGHT_HEIGHT, 20); // = LIGHT_HEIGHT;
+        playerGameObj.GetComponentInChildren<Light>().transform.position.Set(0, LIGHT_HEIGHT, 20); // = LIGHT_HEIGHT;
         //player_object.GetComponent("Camera").transform.position.y = LIGHT_HEIGHT;
 
         // Load and init level and map
@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
 
     public PlayerAudio getAudio()
     {
-        return player_object.GetComponentInChildren<PlayerAudio>();
+        return playerGameObj.GetComponentInChildren<PlayerAudio>();
     }
 
 }

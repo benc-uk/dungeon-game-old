@@ -3,8 +3,8 @@
 public class MapCell 
 {
     public bool solid;
-    public bool player_start;
-    public GameObject cell_object;
+    public bool playerStart;
+    public GameObject gameObj;
     public int x;
     public int y;
     private MapFeature feature;
@@ -16,7 +16,7 @@ public class MapCell
         this.x = x;
         this.y = y;
         this.solid = true;
-        this.player_start = false;
+        this.playerStart = false;
         this.feature = null;
 	}
 

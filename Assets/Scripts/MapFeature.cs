@@ -3,7 +3,7 @@
 public class MapFeature
 {
     public bool blocking;
-    public GameObject game_object;
+    public GameObject gameObj;
     public bool active;
     public int facing;
     public string type;
@@ -25,8 +25,8 @@ public class MapFeature
 
     public void activate()
     {
-        Animation anim = this.game_object.GetComponentInChildren<Animation>();
-        AudioSource audio_source = this.game_object.GetComponentInChildren<AudioSource>();
+        Animation anim = this.gameObj.GetComponentInChildren<Animation>();
+        AudioSource audio_source = this.gameObj.GetComponentInChildren<AudioSource>();
 
         foreach (AnimationState state in anim) {
             state.speed = 1;
@@ -41,8 +41,8 @@ public class MapFeature
 
     public void deactivate()
     {
-        Animation anim = this.game_object.GetComponentInChildren<Animation>();
-        AudioSource audio_source = this.game_object.GetComponentInChildren<AudioSource>();
+        Animation anim = this.gameObj.GetComponentInChildren<Animation>();
+        AudioSource audio_source = this.gameObj.GetComponentInChildren<AudioSource>();
 
         foreach (AnimationState state in anim) {
             state.speed = -1;

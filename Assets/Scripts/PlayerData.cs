@@ -7,20 +7,20 @@ public class PlayerData
     public int x;
     public int y;
     public int facing;
-    private GameObject player_obj;
+    private GameObject gameObj;
 
     public PlayerData(GameObject obj)
     {
         placed = false;
         facing = Map.NORTH;
-        player_obj = obj;
+        gameObj = obj;
     }
 
     public void setPlayerLocation(int x, int y)
     {
         this.x = x;
         this.y = y;
-        player_obj.transform.position = new Vector3(x * Main.CELL_SIZE, 0, -(y * Main.CELL_SIZE));
+        gameObj.transform.position = new Vector3(x * Main.CELL_SIZE, 0, -(y * Main.CELL_SIZE));
     }
 
     public void turnRight()

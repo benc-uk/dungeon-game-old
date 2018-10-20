@@ -4,11 +4,11 @@ using System.Collections;
 public class Monster
 {
     private string id;
-    private string monname;
+    private string name;
     private int x;
     private int y;
     private int num;
-    public GameObject g_obj;
+    public GameObject gameObj;
 
     public Monster(string id, int x, int y, int n)
     {
@@ -20,6 +20,6 @@ public class Monster
 
     public void attack()
     {
-        g_obj.GetComponent<Animation>().Play("Monster Attack");
+        gameObj.GetComponent<Animation>().Play("Monster Attack");
     }
 }

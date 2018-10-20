@@ -3,14 +3,14 @@ using System.Collections;
 
 public class ObjectClicker : MonoBehaviour {
 
-    private GameObject player_obj;
-    private PlayerAudio player_audio;
+    private GameObject playerObj;
+    private PlayerAudio playerAudio;
 
 	// Use this for initialization
 	void Start ()
     {
-        player_obj = GameObject.FindWithTag("Player");
-        player_audio = player_obj.GetComponentInChildren<PlayerAudio>();
+        playerObj = GameObject.FindWithTag("Player");
+        playerAudio = playerObj.GetComponentInChildren<PlayerAudio>();
     }
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class ObjectClicker : MonoBehaviour {
 
     void OnMouseUpAsButton()
     {
-        float distance = Vector3.Distance(transform.position, player_obj.transform.position);
+        float distance = Vector3.Distance(transform.position, playerObj.transform.position);
         if (distance > Main.CELL_SIZE) return;
 
         // TODO! 
@@ -34,7 +34,7 @@ public class ObjectClicker : MonoBehaviour {
         door.toggle();
         door.blocking = !door.active;
 
-        player_audio.playMisc(PlayerAudio.CLICK);
+        playerAudio.playMisc(PlayerAudio.CLICK);
         Animation anim = this.GetComponent<Animation>();
         anim.Play();
     }

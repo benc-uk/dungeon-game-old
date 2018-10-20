@@ -23,6 +23,5 @@ public class AnimMonsterShuffle : MonoBehaviour
         float bob1 = bob_scale * (Mathf.PerlinNoise((Time.time * speed), perlin_offset1) - 0.5f);
         float bob2 = bob_scale * (Mathf.PerlinNoise((Time.time * speed), perlin_offset2) - 0.5f);
         transform.localPosition = new Vector3(Mathf.Floor(init_pos.x + bob1), init_pos.y, Mathf.Floor(init_pos.z + bob2));
-
     }
 }

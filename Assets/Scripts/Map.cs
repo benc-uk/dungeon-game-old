@@ -29,7 +29,7 @@ public class Map
         int y = 0;
 
         // Read the level file and parse line by line
-        System.IO.StreamReader file = new System.IO.StreamReader(MapBuilder.MAP_DIR + level + ".dat");
+        System.IO.StreamReader file = new System.IO.StreamReader(Consts.MAP_DIR + level + ".dat");
         while ((line = file.ReadLine()) != null) {
             x = 0;
             foreach (char c in line) {
@@ -40,7 +40,7 @@ public class Map
                 }
                 if(c == 's') {
                     data[x, y].solid = false;
-                    data[x, y].player_start = true;
+                    data[x, y].playerStart = true;
                     player_start = data[x, y];
                     Main.player.setPlayerLocation(x, y);
                 }
