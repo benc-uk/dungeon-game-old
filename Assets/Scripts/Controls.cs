@@ -37,7 +37,8 @@ public class Controls : MonoBehaviour
         }
 
         if (Input.GetKey("a")) {
-            Main.map.data[0, 0].monster.attack();
+            // TODO! 
+            //Main.map.data[1, 1].monster.attack();
         }
 
         if ((Input.GetKey("up") || Input.GetKey("down")) && !MOVING) {
@@ -137,7 +138,6 @@ public class Controls : MonoBehaviour
             lerp_time = 0f;
         }
 
-
         // Increment timer once per frame
         lerp_time += Time.deltaTime;
         // End the movement (lerp) if max time is reached, this is when movement has stopped
@@ -154,9 +154,10 @@ public class Controls : MonoBehaviour
     {
         // lerp to new location
         float t = lerp_time / Main.MAX_LERP_TIME;
-
-        // cosine lerp 
-        //t = Mathf.Sin(t * Mathf.PI * 0.5f);
+        // cosine lerp - removed
+        // if(!(Input.GetKey("up") || Input.GetKey("down"))) {
+        //     t = Mathf.Sin(t * Mathf.PI * 0.5f);
+        // }
 
         player_obj.transform.position = Vector3.Lerp(start, target, t);
         player_obj.transform.rotation = Quaternion.Lerp(turn_from, turn_to, t);

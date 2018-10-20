@@ -24,6 +24,8 @@ public class ObjectClicker : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, player_obj.transform.position);
         if (distance > Main.CELL_SIZE) return;
 
+        // TODO! 
+        // Remove hardcoded logic!
         MapFeature door = (MapFeature)Main.map.data[2, 2].getFeature();
         door.toggle();
         door.blocking = !door.active;
@@ -31,7 +33,6 @@ public class ObjectClicker : MonoBehaviour {
         door = (MapFeature)Main.map.data[3, 4].getFeature();
         door.toggle();
         door.blocking = !door.active;
-
 
         player_audio.playMisc(PlayerAudio.CLICK);
         Animation anim = this.GetComponent<Animation>();

@@ -110,7 +110,7 @@ public class MapBuilder : MonoBehaviour
         }
 
         if(mc.monster != null) {
-            addMonster(ceil, mc);
+            addMonster(cell, mc);
         }
 
         return cell;
@@ -129,7 +129,6 @@ public class MapBuilder : MonoBehaviour
         if (!mc.hasFeature() && Random.Range(0, 100) > 54 || (mc.x == 3 && mc.y ==1 && rot ==0)) {
             GameObject[] wall_deco = Resources.LoadAll<GameObject>("Decor/");
 
-
             GameObject torch_obj = (GameObject)Instantiate(wall_deco[Random.Range(0, wall_deco.Length)], new Vector3(0, 0, 0), Quaternion.identity);
             torch_obj.transform.rotation = Quaternion.Euler(0, rot, 0);
             torch_obj.transform.parent = cell.transform;
@@ -143,14 +142,28 @@ public class MapBuilder : MonoBehaviour
     }
 
     /*
-    *
+    *   Adds a monster into a 
     */
     public static void addMonster(GameObject cell, MapCell mc)
     {
         GameObject mon_go = (GameObject)Instantiate(Resources.Load("MonsterGroup"), new Vector3(0, 0, 0), Quaternion.identity);
         mc.monster.g_obj = mon_go;
         GameObject mon_sprite_go = (GameObject)Instantiate(Resources.Load("MonsterSprite"), new Vector3(0, 0, 0), Quaternion.identity);
-        mon_sprite_go.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/mon_skel");
+        string randomMon = "mon_skel";
+        int r = Random.Range(0, 100);
+        if (r > 0 && r <= 20) 
+            randomMon = "mon_orc";
+        if (r > 20 && r <= 40) 
+            randomMon = "mon_skel";
+        if (r > 40 && r <= 60) 
+            randomMon = "mon_mummy";
+        if (r > 60 && r <= 80) 
+            randomMon = "mon_ghost";            
+        if (r > 80 && r <= 100)
+            randomMon = "mon_eye";
+
+        mon_sprite_go.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/"+randomMon);
+        if(randomMon == "mon_ghost") mon_sprite_go.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
         mon_sprite_go.transform.parent = mon_go.transform;
         mon_go.transform.parent = cell.transform;
     }

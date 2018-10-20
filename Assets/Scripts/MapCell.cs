@@ -39,6 +39,8 @@ public class MapCell
     {
         if (this.solid) return true;
         if (this.hasFeature() && this.feature.blocking) return true;
+        // monsters block
+        if (this.monster != null) return true;
 
         return false;
     }
