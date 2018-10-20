@@ -9,7 +9,7 @@ public class MonsterSound : MonoBehaviour {
     public float min_time = 4f;
     public float max_time = 4f;
     public float min_pitch = 0.6f;
-    public float max_pitch = 1.0f;
+    public float max_pitch = 2.0f;
 
 
     // Use this for initialization

@@ -125,24 +125,18 @@ public class MapBuilder : MonoBehaviour
         wall.transform.rotation = Quaternion.Euler(0, rot, 0);
         wall.transform.parent = cell.transform;
 
-        // Wall deco
-        if (!mc.hasFeature() && Random.Range(0, 100) > 54 || (mc.x == 3 && mc.y ==1 && rot ==0)) {
+        // Wall deco, randomized
+        if (!mc.hasFeature() && Random.Range(0, 100) > 54 || (mc.x == 3 && mc.y == 1 && rot == 0)) {
             GameObject[] wall_deco = Resources.LoadAll<GameObject>("Decor/");
 
             GameObject torch_obj = (GameObject)Instantiate(wall_deco[Random.Range(0, wall_deco.Length)], new Vector3(0, 0, 0), Quaternion.identity);
             torch_obj.transform.rotation = Quaternion.Euler(0, rot, 0);
             torch_obj.transform.parent = cell.transform;
         }
-        // Floor deco (alongside walls)
-        /*if (!mc.hasFeature() && Random.Range(0, 100) > 50) {
-            GameObject barrel_obj = (GameObject)Instantiate(floor_deco[Random.Range(0, floor_deco.Length)], new Vector3(0, 0, 0), Quaternion.identity);
-            barrel_obj.transform.rotation = Quaternion.Euler(0, rot, 0);
-            barrel_obj.transform.parent = cell.transform;
-        }*/
     }
 
     /*
-    *   Adds a monster into a 
+    *   Adds a monster into a cell
     */
     public static void addMonster(GameObject cell, MapCell mc)
     {
@@ -163,7 +157,7 @@ public class MapBuilder : MonoBehaviour
             randomMon = "mon_eye";
 
         mon_sprite_go.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/"+randomMon);
-        if(randomMon == "mon_ghost") mon_sprite_go.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
+        if(randomMon == "mon_ghost") mon_sprite_go.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.7f);
         mon_sprite_go.transform.parent = mon_go.transform;
         mon_go.transform.parent = cell.transform;
     }
